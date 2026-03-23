@@ -1,0 +1,26 @@
+running egg_info
+writing ../../build/vimbax_camera_color_correction/vimbax_camera_color_correction.egg-info/PKG-INFO
+writing dependency_links to ../../build/vimbax_camera_color_correction/vimbax_camera_color_correction.egg-info/dependency_links.txt
+writing entry points to ../../build/vimbax_camera_color_correction/vimbax_camera_color_correction.egg-info/entry_points.txt
+writing requirements to ../../build/vimbax_camera_color_correction/vimbax_camera_color_correction.egg-info/requires.txt
+writing top-level names to ../../build/vimbax_camera_color_correction/vimbax_camera_color_correction.egg-info/top_level.txt
+reading manifest file '../../build/vimbax_camera_color_correction/vimbax_camera_color_correction.egg-info/SOURCES.txt'
+writing manifest file '../../build/vimbax_camera_color_correction/vimbax_camera_color_correction.egg-info/SOURCES.txt'
+running build
+running build_py
+copying vimbax_camera_color_correction/__init__.py -> /home/root1/lzx_ws/project/vimbax_ros_camera/build/vimbax_camera_color_correction/build/lib/vimbax_camera_color_correction
+copying vimbax_camera_color_correction/color_correction_node.py -> /home/root1/lzx_ws/project/vimbax_ros_camera/build/vimbax_camera_color_correction/build/lib/vimbax_camera_color_correction
+running install
+running install_lib
+copying /home/root1/lzx_ws/project/vimbax_ros_camera/build/vimbax_camera_color_correction/build/lib/vimbax_camera_color_correction/color_correction_node.py -> /home/root1/lzx_ws/project/vimbax_ros_camera/install/vimbax_camera_color_correction/lib/python3.10/site-packages/vimbax_camera_color_correction
+byte-compiling /home/root1/lzx_ws/project/vimbax_ros_camera/install/vimbax_camera_color_correction/lib/python3.10/site-packages/vimbax_camera_color_correction/color_correction_node.py to color_correction_node.cpython-310.pyc
+running install_data
+copying resource/vimbax_camera_color_correction -> /home/root1/lzx_ws/project/vimbax_ros_camera/install/vimbax_camera_color_correction/share/ament_index/resource_index/packages
+copying launch/color_correction.launch.py -> /home/root1/lzx_ws/project/vimbax_ros_camera/install/vimbax_camera_color_correction/share/vimbax_camera_color_correction/launch
+copying package.xml -> /home/root1/lzx_ws/project/vimbax_ros_camera/install/vimbax_camera_color_correction/share/vimbax_camera_color_correction
+running install_egg_info
+removing '/home/root1/lzx_ws/project/vimbax_ros_camera/install/vimbax_camera_color_correction/lib/python3.10/site-packages/vimbax_camera_color_correction-1.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/vimbax_camera_color_correction/vimbax_camera_color_correction.egg-info to /home/root1/lzx_ws/project/vimbax_ros_camera/install/vimbax_camera_color_correction/lib/python3.10/site-packages/vimbax_camera_color_correction-1.0.0-py3.10.egg-info
+running install_scripts
+Installing color_correction_node script to /home/root1/lzx_ws/project/vimbax_ros_camera/install/vimbax_camera_color_correction/lib/vimbax_camera_color_correction
+writing list of installed files to '/home/root1/lzx_ws/project/vimbax_ros_camera/build/vimbax_camera_color_correction/install.log'

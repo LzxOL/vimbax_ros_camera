@@ -1,0 +1,3 @@
+test/unit_tests/CMakeFiles/test_lib.dir/test_lib.c.o: \
+ /home/root1/lzx_ws/project/vimbax_ros_camera/src/vimbax_ros2_driver/vimbax_camera/test/unit_tests/test_lib.c \
+ /usr/include/stdc-predef.h

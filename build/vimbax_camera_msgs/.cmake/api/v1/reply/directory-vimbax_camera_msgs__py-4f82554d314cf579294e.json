@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "vimbax_camera_msgs__py",
+		"source" : "/home/root1/lzx_ws/project/vimbax_ros_camera/build/vimbax_camera_msgs/vimbax_camera_msgs__py"
+	}
+}

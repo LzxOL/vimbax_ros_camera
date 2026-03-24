@@ -24,6 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             'color_correction_node = ' + package_name + '.color_correction_node:main',
+            'lut_apply_node = ' + package_name + '.lut_apply_node:main',
         ],
     },
 )

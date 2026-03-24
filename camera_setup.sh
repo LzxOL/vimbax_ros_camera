@@ -96,54 +96,54 @@ ros2 service call ${SERVICE_PREFIX}/int_set vimbax_camera_msgs/srv/FeatureIntSet
 echo "5. 设置 Height = ${HEIGHT}"
 ros2 service call ${SERVICE_PREFIX}/int_set vimbax_camera_msgs/srv/FeatureIntSet "{feature_name: 'Height', feature_module: {id: 0}, value: ${HEIGHT}}"
 
-# 6. 设置 ColorTransformation (CCM 矩阵)
-# 需要先设置 ColorTransformationValueSelector，再设置 ColorTransformationValue
-echo "6. 设置 ColorTransformationValue (CCM 矩阵)"
-IFS=',' read -ra CCM_VALUES <<< "$CCM_MATRIX"
+# # 6. 设置 ColorTransformation (CCM 矩阵)
+# # 需要先设置 ColorTransformationValueSelector，再设置 ColorTransformationValue
+# echo "6. 设置 ColorTransformationValue (CCM 矩阵)"
+# IFS=',' read -ra CCM_VALUES <<< "$CCM_MATRIX"
 
-# 设置 Gain00
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain00'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[0]}}"
+# # 设置 Gain00
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain00'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[0]}}"
 
-# 设置 Gain01
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain01'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[1]}}"
+# # 设置 Gain01
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain01'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[1]}}"
 
-# 设置 Gain02
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain02'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[2]}}"
+# # 设置 Gain02
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain02'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[2]}}"
 
-# 设置 Gain10
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain10'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[3]}}"
+# # 设置 Gain10
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain10'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[3]}}"
 
-# 设置 Gain11
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain11'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[4]}}"
+# # 设置 Gain11
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain11'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[4]}}"
 
-# 设置 Gain12
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain12'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[5]}}"
+# # 设置 Gain12
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain12'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[5]}}"
 
-# 设置 Gain20
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain20'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[6]}}"
+# # 设置 Gain20
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain20'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[6]}}"
 
-# 设置 Gain21
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain21'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[7]}}"
+# # 设置 Gain21
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain21'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[7]}}"
 
-# 设置 Gain22
-ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain22'}"
-ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[8]}}"
+# # 设置 Gain22
+# ros2 service call ${SERVICE_PREFIX}/enum_set vimbax_camera_msgs/srv/FeatureEnumSet "{feature_name: 'ColorTransformationValueSelector', feature_module: {id: 0}, value: 'Gain22'}"
+# ros2 service call ${SERVICE_PREFIX}/float_set vimbax_camera_msgs/srv/FeatureFloatSet "{feature_name: 'ColorTransformationValue', feature_module: {id: 0}, value: ${CCM_VALUES[8]}}"
 
-echo "   CCM 矩阵: [${CCM_VALUES[0]}, ${CCM_VALUES[1]}, ${CCM_VALUES[2]}]"
-echo "            [${CCM_VALUES[3]}, ${CCM_VALUES[4]}, ${CCM_VALUES[5]}]"
-echo "            [${CCM_VALUES[6]}, ${CCM_VALUES[7]}, ${CCM_VALUES[8]}]"
+# echo "   CCM 矩阵: [${CCM_VALUES[0]}, ${CCM_VALUES[1]}, ${CCM_VALUES[2]}]"
+# echo "            [${CCM_VALUES[3]}, ${CCM_VALUES[4]}, ${CCM_VALUES[5]}]"
+# echo "            [${CCM_VALUES[6]}, ${CCM_VALUES[7]}, ${CCM_VALUES[8]}]"
 
-# 7. 启用/禁用 ColorTransformation
-echo "7. 设置 ColorTransformationEnable = ${COLOR_TRANSFORM_ENABLE}"
-ros2 service call ${SERVICE_PREFIX}/bool_set vimbax_camera_msgs/srv/FeatureBoolSet "{feature_name: 'ColorTransformationEnable', feature_module: {id: 0}, value: ${COLOR_TRANSFORM_ENABLE}}"
+# # 7. 启用/禁用 ColorTransformation
+# echo "7. 设置 ColorTransformationEnable = ${COLOR_TRANSFORM_ENABLE}"
+# ros2 service call ${SERVICE_PREFIX}/bool_set vimbax_camera_msgs/srv/FeatureBoolSet "{feature_name: 'ColorTransformationEnable', feature_module: {id: 0}, value: ${COLOR_TRANSFORM_ENABLE}}"
 
 echo "--------------------------------------------"
 echo "相机参数设置完成!"

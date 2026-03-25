@@ -1,14 +1,10 @@
 #!/bin/bash
 
 # Dual Camera 参数设置与启动脚本
-# 用法: ./dual_camera_setup.sh [--pixel_format <format>] [--throughput <value>] [--exposure <value>] [--width <value>] [--height <value>] [--left_serial <serial>] [--right_serial <serial>] [--left_topic <topic>] [--right_topic <topic>]
+# 用法: ./dual_camera_setup.sh [--pixel_format <format>] [--throughput <value>] [--exposure <value>] [--width <value>] [--height <value>] [--left_serial <serial>] [--right_serial <serial>] [--left_topic <topic>] [--right_topic <topic>] [--time-sync]
 # 示例: ./dual_camera_setup.sh
 # 示例: ./dual_camera_setup.sh --pixel_format Mono8 --throughput 450000000 --exposure 600000.0 --width 4512 --height 4512
-# 示例: ./dual_camera_setup.sh --left_serial 03R47 --right_serial 06HV5 --left_topic vimbax_camera_left --right_topic vimbax_camera_right
-#
-# 时间戳同步（请另行启动）:
-#   ros2 launch vimbax_camera camera_timestamp_sync_launch.py
-# 或 ./camera_timestamp_sync.sh
+# 示例: ./dual_camera_setup.sh --left_serial 03R47 --right_serial 06HV5 --time-sync
 
 # 默认值
 PIXEL_FORMAT="Mono8"
@@ -20,6 +16,7 @@ LEFT_SERIAL="03R47"
 RIGHT_SERIAL="06HV5"
 LEFT_TOPIC="vimbax_camera_left"
 RIGHT_TOPIC="vimbax_camera_right"
+TIME_SYNC="false"
 
 # ROS 工作空间路径
 ROS_WS="/home/root1/lzx_ws/project/vimbax_ros_camera"
@@ -63,6 +60,10 @@ while [[ $# -gt 0 ]]; do
             RIGHT_TOPIC="$2"
             shift 2
             ;;
+        --time-sync)
+            TIME_SYNC="true"
+            shift
+            ;;
         *)
             echo "未知参数: $1"
             shift
@@ -88,6 +89,7 @@ echo "像素格式: ${PIXEL_FORMAT}"
 echo "吞吐量限制: ${THROUGHPUT}"
 echo "曝光时间: ${EXPOSURE}"
 echo "图像分辨率: ${WIDTH} x ${HEIGHT}"
+echo "时间戳同步: ${TIME_SYNC}"
 echo "============================================"
 
 # 启动 launch 文件（在前台运行，autostream=0 由脚本手动控制）
@@ -206,11 +208,24 @@ echo "============================================"
 echo "Dual Camera 启动与参数设置完成!"
 echo "Launch 进程仍在后台运行 (PID: ${LAUNCH_PID})"
 echo "按 Ctrl+C 终止所有相机节点"
-echo ""
-echo "注意: 如需时间戳同步，请另开终端运行:"
-echo "  ./camera_timestamp_sync.sh"
-echo "或: ros2 launch vimbax_camera camera_timestamp_sync_launch.py"
 echo "============================================"
 
+# 启动时间戳同步节点（可选）
+TIME_SYNC_PID=""
+if [ "$TIME_SYNC" == "true" ]; then
+    echo ""
+    echo "[时间戳同步] 正在启动时间戳同步节点..."
+    # 等待推流稳定
+    sleep 3
+    ros2 launch vimbax_camera camera_timestamp_sync_launch.py \
+        left_topic:="/${LEFT_NS}/image_raw" \
+        right_topic:="/${RIGHT_NS}/image_raw" \
+        output_topic:="/${RIGHT_NS}/image_sync" &
+    TIME_SYNC_PID=$!
+    echo "[时间戳同步] 进程 PID: ${TIME_SYNC_PID}"
+fi
+
 # 等待后台 launch 进程结束（前台 Ctrl+C 时关闭）
+# 陷阱：Ctrl+C 时同时杀掉时间戳同步进程
+trap 'echo "正在关闭..."; [ -n "$TIME_SYNC_PID" ] && kill $TIME_SYNC_PID 2>/dev/null; exit 0' INT
 wait ${LAUNCH_PID}

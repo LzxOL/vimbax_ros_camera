@@ -306,7 +306,7 @@ def main():
     )
     parser.add_argument(
         '--right-topic', '-r',
-        default='/vimbax_camera_right/image_raw',
+        default='/vimbax_camera_right/image_sync',
         help='右相机 image topic (默认: /vimbax_camera_right/image_raw)'
     )
     parser.add_argument(

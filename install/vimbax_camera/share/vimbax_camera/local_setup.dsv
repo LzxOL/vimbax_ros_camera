@@ -1,3 +1,1 @@
-source;share/vimbax_camera/environment/ament_prefix_path.sh
-source;share/vimbax_camera/environment/library_path.sh
-source;share/vimbax_camera/environment/path.sh
+/home/root1/lzx_ws/project/vimbax_ros_camera/build/vimbax_camera/ament_cmake_environment_hooks/local_setup.dsv

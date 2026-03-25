@@ -1,1 +1,1 @@
-prepend-non-duplicate;LD_LIBRARY_PATH;lib
+/home/root1/lzx_ws/project/vimbax_ros_camera/build/vimbax_camera/ament_cmake_environment_hooks/library_path.dsv

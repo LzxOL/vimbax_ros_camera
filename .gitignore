@@ -1,6 +1,6 @@
-/build
-/log
-/install
-/image.png
-/image_2.png
-/image3_dark.png
+build/
+log/
+install/
+image.png
+image_2.png
+image3_dark.png
